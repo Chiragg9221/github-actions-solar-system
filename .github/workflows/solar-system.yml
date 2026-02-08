@@ -37,3 +37,29 @@ jobs:
           with:
             name: Mocha-Test-Result
             path: test-results.xml
+
+    code-coverage:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout repo
+          uses: actions/checkout@v4
+
+        - name: Download Node
+          uses: actions/setup-node@v6
+          with:
+            node-version: '18'
+
+        - name: Install NPM dependencies
+          run: |
+            npm install
+
+        - name: Code-Coverage
+          run: |
+            npm run code-coverage
+            pwd
+            ls -lrth 
+
+
+
+
+
